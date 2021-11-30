@@ -62,4 +62,10 @@ public class MovieController {
         return ResponseEntity.ok(new RecommendMovie().recommendMovie(allMovies.get(platformId), movieId, intGenresId));
     }
 
+    @GetMapping("listRecommendedMovies")
+    @Cacheable("listRecommendedMoviesController")
+    public ResponseEntity listRecommendedMovies() {
+        return ResponseEntity.ok(new GetMovie().listRecommendedMovies());
+    }
+
 }
